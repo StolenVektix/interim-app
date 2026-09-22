@@ -1,0 +1,443 @@
+:root {
+  --color-primary: #2952e3;
+  --color-primary-dark: #1c3aa8;
+  --color-bg: #ffffff;
+  --color-bg-subtle: #f5f7fb;
+  --color-border: #e2e6ef;
+  --color-text: #1a1d29;
+  --color-text-muted: #5b6172;
+  --color-danger: #d64550;
+  --color-danger-bg: #fdeceb;
+  --color-success: #1f9d55;
+  --color-success-bg: #e9f9ee;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-card: 0 8px 24px rgba(26, 29, 41, 0.08);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg-subtle);
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  padding: 0.7rem 1.6rem;
+  background: var(--color-primary);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: var(--color-bg);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+}
+
+button.secondary:hover:not(:disabled) {
+  background: var(--color-bg-subtle);
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Auth */
+
+.auth-page {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.auth-form,
+.offer-form,
+.filter-form {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 2rem;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.offer-form,
+.filter-form {
+  max-width: none;
+  margin-bottom: 2rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.checkbox-label {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.8rem;
+  background: var(--color-bg);
+}
+
+label.invalid input,
+label.invalid select,
+label.invalid textarea {
+  border-color: var(--color-danger);
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+fieldset {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.8rem 1rem;
+}
+
+legend {
+  font-weight: 600;
+  color: var(--color-text-muted);
+  padding: 0 0.4rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.form-error {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  border-radius: var(--radius-md);
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form-success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border-radius: var(--radius-md);
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.auth-switch {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* Employer offers */
+
+.offer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.offer-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem;
+}
+
+.offer-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.offer-meta,
+.offer-period {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin: 0.2rem 0;
+}
+
+.offer-description {
+  color: var(--color-text);
+  margin: 0.5rem 0;
+}
+
+.status-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.offer-card.status-closed .status-badge {
+  background: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+}
+
+.offer-actions {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.empty-hint {
+  color: var(--color-text-muted);
+}
+
+/* Applications */
+
+.application-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.application-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.applicant-email {
+  font-weight: 600;
+  flex: 1;
+}
+
+.applied-at {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+/* Worker stack */
+
+.worker-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.applied-banner {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.applied-banner button {
+  background: transparent;
+  color: var(--color-success);
+  border: 1px solid var(--color-success);
+  padding: 0.3rem 0.9rem;
+}
+
+.stack-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0 2rem;
+}
+
+.swipe-card {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 2rem 1.5rem;
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+}
+
+.swipe-card h2 {
+  margin-top: 0;
+}
+
+.offer-city {
+  display: inline-block;
+  background: var(--color-bg-subtle);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.offer-wage {
+  font-weight: 600;
+}
+
+.swipe-hint {
+  position: absolute;
+  top: 1.5rem;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-md);
+  border: 3px solid currentColor;
+}
+
+.hint-right {
+  right: 1.5rem;
+  color: var(--color-success);
+  transform: rotate(8deg);
+}
+
+.hint-left {
+  left: 1.5rem;
+  color: var(--color-danger);
+  transform: rotate(-8deg);
+}
+
+.swipe-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.swipe-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swipe-btn.reject {
+  background: var(--color-bg);
+  color: var(--color-danger);
+  border: 2px solid var(--color-danger);
+}
+
+.swipe-btn.accept {
+  background: var(--color-bg);
+  color: var(--color-success);
+  border: 2px solid var(--color-success);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  max-width: 360px;
+}
